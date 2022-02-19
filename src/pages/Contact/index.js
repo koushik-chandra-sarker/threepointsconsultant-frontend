@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div>
+        <div className={"page-full-height bg-indigo-100"}>
             <h1>Contact</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

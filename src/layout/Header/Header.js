@@ -7,7 +7,7 @@ const Header = () => {
     return (
 
         <nav
-            className="container mx-auto relative w-full flex items-center justify-between py-4 text-gray-500">
+            className="relative w-full flex items-center justify-between py-4 text-gray-500">
             <div className=" w-full items-center justify-between">
                 <a className="w-32 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1"
                    href="#">
@@ -20,7 +20,7 @@ const Header = () => {
                     <a rel={"noreferrer"} target={"_blank"} href={`https://www.facebook.com/sharer.php?u=${SITE_URL}`}>
                         <i className="fas fa-share-alt text-gray-400"/>
                     </a>
-                    <i className="fas fa-search text-gray-400"></i>
+                    <i className="fas fa-search text-gray-400 mt-1"/>
                 </div>
                 <ul class="w-full flex pl-0 list-style-none">
                     <li class="px-2 whitespace-nowrap "><Link to={"/"}>Home</Link></li>

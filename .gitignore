@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.idea
+.gradle
 # testing
 /coverage
 
@@ -23,3 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 *.zip
 **.zip
+/.gradle/
+/.idea/
+/.gradle/
