@@ -7,7 +7,7 @@ const Layout = ({children}) => {
         <section className={"flex flex-col h-screen container mx-auto"}>
             <Header/>
             {children}
-            <div className={'mt-auto py-2'}>
+            <div className={'mt-auto py-4 border-t'}>
                 <Footer/>
             </div>
 

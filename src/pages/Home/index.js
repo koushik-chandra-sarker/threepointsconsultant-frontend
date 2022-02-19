@@ -20,7 +20,7 @@ const slider = [{
 }];
 const Home = () => {
     return (
-        <div className={"page-full-height bg-blue-500"}>
+        <div className={"page-full-height"}>
             < Slider
                 autoplay={3000}
                 classNames={customCss}

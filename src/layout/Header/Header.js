@@ -34,14 +34,14 @@ const Header = () => {
                         </div>
                     </div>
                     {/* Nav desktop view */}
-                    <ul className="w-full hidden md:flex pl-0 list-style-none ">
-                        <li className="px-2 whitespace-nowrap "><Link to={"/"}>Home</Link></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><Link to={"/about"}>About Us</Link></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><Link to={"/project"}>Projects</Link></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><Link to={"/news"}>News</Link></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><Link to={"/publication"}>Publications</Link>
+                    <ul className="desktop-menu w-full hidden md:flex pl-0 list-style-none ">
+                        <li className="px-2 whitespace-nowrap "><NavLink to={"/"}>Home</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/about"}>About Us</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/project"}>Projects</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/news"}>News</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/publication"}>Publications</NavLink>
                         </li>
-                        <li className="pl-2 whitespace-nowrap border-l-2"><Link to={"/contact"}>Contact</Link></li>
+                        <li className="pl-2 whitespace-nowrap border-l-2"><NavLink to={"/contact"}>Contact</NavLink></li>
                     </ul>
 
 
@@ -49,7 +49,7 @@ const Header = () => {
             </nav>
             {/* Nav mobile view */}
             <div className={!activeHamburger? homeCss.hamburgerActive:""}>
-                <ul className={`${homeCss.mobileMenu} "w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-style-none"`}>
+                <ul className={`${homeCss.mobileMenu} "mobile-menu w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-style-none"`}>
                     <li className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/about"}>About Us</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
