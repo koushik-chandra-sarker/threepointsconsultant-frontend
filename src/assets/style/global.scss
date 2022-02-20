@@ -138,3 +138,15 @@
     }
   }
 }
+
+.h-full-i{
+  height: 100% !important;
+}
+.link-preview{
+  .Description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+}

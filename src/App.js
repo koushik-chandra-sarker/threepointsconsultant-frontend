@@ -1,4 +1,5 @@
 import "../src/assets/style/global.scss"
+import '@splidejs/splide/dist/css/splide.min.css';
 import {Route, Routes} from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";

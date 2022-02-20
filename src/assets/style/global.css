@@ -108,4 +108,13 @@
   .team-modal .modal-wrap p {
     padding: 15px 20px 0 20px; } }
 
+.h-full-i {
+  height: 100% !important; }
+
+.link-preview .Description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block; }
+
 /*# sourceMappingURL=global.css.map */
