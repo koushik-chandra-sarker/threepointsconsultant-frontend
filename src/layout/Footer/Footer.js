@@ -7,7 +7,7 @@ const Footer = () => {
             {/*copyright */}
             <div
                 className={"text-gray-400 flex items-center md:text-base text-xs text-center md:text-left"}>
-                <div><i className="far fa-copyright"/> Copyright {new Date().getFullYear()}
+                <div><i className="far fa-copyright"/> Copyright {new Date().getFullYear()}. <> </>
                     3 Point Consultant. All rights reserved
                 </div>
             </div>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <div className={"flex justify-center flex-col"}>
                     <div className={"text-gray-400"}>
                         <i className={"fas fa-phone-square-alt mr-2"}/>
-                        <a href={`tel:${PHONES1}`}>{PHONES1}</a>;
+                        <a href={`tel:${PHONES1}`}>{PHONES1}</a>;<> </>
                         <a href={`tel:${PHONES2}`}>{PHONES2}</a>
                     </div>
                     <div className={"text-gray-400"}>

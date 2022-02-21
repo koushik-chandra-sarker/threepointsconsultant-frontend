@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TeamModal = ({children, content}) => {
+const Modal = ({children, content}) => {
     return (
         <div>
-            <div className="team-modal full-height">
+            <div className="modal-parent full-height">
                 <input className="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
                 <label htmlFor="modal-btn">
                     {/*<i className="fa-solid fa-xmark text-red-900"/>*/}
@@ -20,4 +20,4 @@ const TeamModal = ({children, content}) => {
     );
 };
 
-export default TeamModal;
+export default Modal;

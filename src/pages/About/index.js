@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamModal from "./TeamModal";
+import Modal from "../../components/Modal";
 
 const About = () => {
     return (
@@ -68,7 +68,7 @@ const About = () => {
                 }*/}
                 {
                     [1, 2, 3, 4, 5, 6, 7, 8, 10,1,1,1,1].map((v, i) => (
-                        <TeamModal
+                        <Modal
                             content={
                                 <div
                                     className="flex flex-col items-center justify-center bg-white p-4 shadow rounded-lg">
@@ -138,7 +138,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                        </TeamModal>
+                        </Modal>
                     ))
                 }
 

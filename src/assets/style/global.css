@@ -1,29 +1,43 @@
 .page-full-height {
-  height: calc(100vh - 148px);
+  height: calc(100vh - 165px);
   overflow-y: auto; }
   .page-full-height::-webkit-scrollbar {
     display: none; }
+
+.custom-scrollbar {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */ }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #c7bebe; }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(89, 89, 89, 0.69); }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; }
 
 .desktop-menu .active, .mobile-menu .active {
   color: black;
   font-weight: bold;
   border-bottom: 2px solid #000000; }
 
-.team-modal .full-height {
+.modal-parent .full-height {
   min-height: 100vh; }
-.team-modal [type="checkbox"]:checked,
-.team-modal [type="checkbox"]:not(:checked) {
+.modal-parent [type="checkbox"]:checked,
+.modal-parent [type="checkbox"]:not(:checked) {
   position: absolute;
   left: -9999px; }
-.team-modal .modal-btn:checked + label,
-.team-modal .modal-btn:not(:checked) + label {
+.modal-parent .modal-btn:checked + label,
+.modal-parent .modal-btn:not(:checked) + label {
   transition: all 200ms linear; }
-.team-modal .modal-btn:checked + label .uil,
-.team-modal .modal-btn:not(:checked) + label .uil {
+.modal-parent .modal-btn:checked + label .uil,
+.modal-parent .modal-btn:not(:checked) + label .uil {
   margin-left: 10px;
   font-size: 18px; }
-.team-modal .modal-btn:checked + label:after,
-.team-modal .modal-btn:not(:checked) + label:after {
+.modal-parent .modal-btn:checked + label:after,
+.modal-parent .modal-btn:not(:checked) + label:after {
   position: fixed;
   top: 30px;
   right: 30px;
@@ -43,12 +57,12 @@
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px); }
-.team-modal .modal-btn:checked + label:after {
+.modal-parent .modal-btn:checked + label:after {
   transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0); }
-.team-modal .modal {
+.modal-parent .modal {
   position: fixed;
   display: block;
   display: -ms-flexbox;
@@ -68,11 +82,11 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 250ms 700ms ease; }
-.team-modal .modal-btn:checked ~ .modal {
+.modal-parent .modal-btn:checked ~ .modal {
   pointer-events: auto;
   opacity: 1;
   transition: all 300ms ease-in-out; }
-.team-modal .modal-wrap {
+.modal-parent .modal-wrap {
   position: relative;
   display: block;
   width: 100%;
@@ -80,7 +94,6 @@
   margin: 20px auto;
   border-radius: 4px;
   overflow: hidden;
-  padding-bottom: 20px;
   background-color: #fff;
   -ms-flex-item-align: center;
   align-self: center;
@@ -88,24 +101,24 @@
   opacity: 0;
   transform: scale(0.6);
   transition: opacity 250ms 250ms ease, transform 300ms 250ms ease; }
-.team-modal .modal-wrap img {
+.modal-parent .modal-wrap img {
   display: block;
   width: 100%;
   height: auto; }
-.team-modal .modal-wrap p {
+.modal-parent .modal-wrap p {
   padding: 20px 30px 0 30px; }
-.team-modal .modal-btn:checked ~ .modal .modal-wrap {
+.modal-parent .modal-btn:checked ~ .modal .modal-wrap {
   opacity: 1;
   transform: scale(1);
   transition: opacity 250ms 500ms ease, transform 350ms 500ms ease; }
-.team-modal .modal-btn:checked ~ .logo img {
+.modal-parent .modal-btn:checked ~ .logo img {
   filter: brightness(100%);
   transition: all 250ms linear; }
 @media screen and (max-width: 500px) {
-  .team-modal .modal-wrap {
+  .modal-parent .modal-wrap {
     width: calc(100% - 40px);
     padding-bottom: 15px; }
-  .team-modal .modal-wrap p {
+  .modal-parent .modal-wrap p {
     padding: 15px 20px 0 20px; } }
 
 .h-full-i {
@@ -116,5 +129,46 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: block; }
+
+.project-cat-active {
+  color: #000000;
+  font-weight: bold;
+  border-bottom: 2px solid #000000; }
+
+.project-card {
+  overflow: hidden; }
+  .project-card img {
+    transform: scale(1);
+    transition: all 200ms ease-in-out; }
+  .project-card:hover img {
+    transform: scale(1.2); }
+
+.project-card-title {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.single-project-thumb {
+  opacity: .5; }
+
+.active-thumb {
+  border: 2px solid #fd7150; }
+
+.webkit-inline-box {
+  display: inline-flex; }
+
+.project-video-dialog button {
+  z-index: 10;
+  background-color: #fd7150;
+  border-radius: 50%;
+  top: 5px;
+  right: 5px; }
+  .project-video-dialog button svg {
+    fill: white;
+    padding: 3px; }
+
+.project-single-gallery-height {
+  height: calc(100vh - 221px); }
+  @media screen and (max-width: 700px) {
+    .project-single-gallery-height {
+      height: auto; } }
 
 /*# sourceMappingURL=global.css.map */

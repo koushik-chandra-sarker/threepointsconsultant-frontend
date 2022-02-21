@@ -1,10 +1,34 @@
 .page-full-height {
-  height: calc(100vh - 148px);
+  height: calc(100vh - 165px);
   overflow-y: auto;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: rgb(199, 190, 190);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgba(89, 89, 89, 0.69);
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
 .desktop-menu, .mobile-menu {
   .active {
     color: black;
@@ -13,27 +37,30 @@
   }
 }
 
-.team-modal{
-  .full-height{
+.modal-parent {
+  .full-height {
     min-height: 100vh;
   }
 
   [type="checkbox"]:checked,
-  [type="checkbox"]:not(:checked){
+  [type="checkbox"]:not(:checked) {
     position: absolute;
     left: -9999px;
   }
+
   .modal-btn:checked + label,
-  .modal-btn:not(:checked) + label{
+  .modal-btn:not(:checked) + label {
     transition: all 200ms linear;
   }
+
   .modal-btn:checked + label .uil,
-  .modal-btn:not(:checked) + label .uil{
+  .modal-btn:not(:checked) + label .uil {
     margin-left: 10px;
     font-size: 18px;
   }
+
   .modal-btn:checked + label:after,
-  .modal-btn:not(:checked) + label:after{
+  .modal-btn:not(:checked) + label:after {
     position: fixed;
     top: 30px;
     right: 30px;
@@ -48,24 +75,27 @@
     color: #ffffff;
     font-family: 'unicons';
     content: '';
-    box-shadow: 0 12px 25px 0 rgba(16,39,112,.25);
+    box-shadow: 0 12px 25px 0 rgba(16, 39, 112, .25);
     transition: all 200ms linear;
     opacity: 0;
     pointer-events: none;
     transform: translateY(20px);
   }
+
   .modal-btn:checked + label:hover:after,
-  .modal-btn:not(:checked) + label:hover:after{
+  .modal-btn:not(:checked) + label:hover:after {
     //background-color: #102770;
     //color: #ffeba7;
   }
-  .modal-btn:checked + label:after{
+
+  .modal-btn:checked + label:after {
     transition: opacity 300ms 300ms ease, transform 300ms 300ms ease, background-color 250ms linear, color 250ms linear;
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
-  .modal{
+
+  .modal {
     position: fixed;
     display: block;
     display: -ms-flexbox;
@@ -81,16 +111,18 @@
     height: 100%;
     z-index: 100;
     overflow-x: hidden;
-    background-color: rgba(31,32,41,.75);
+    background-color: rgba(31, 32, 41, .75);
     pointer-events: none;
     opacity: 0;
     transition: opacity 250ms 700ms ease;
   }
-  .modal-btn:checked ~ .modal{
+
+  .modal-btn:checked ~ .modal {
     pointer-events: auto;
     opacity: 1;
     transition: all 300ms ease-in-out;
   }
+
   .modal-wrap {
     position: relative;
     display: block;
@@ -99,24 +131,27 @@
     margin: 20px auto;
     border-radius: 4px;
     overflow: hidden;
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
     background-color: #fff;
     -ms-flex-item-align: center;
     align-self: center;
-    box-shadow: 0 12px 25px 0 rgba(199,175,189,.25);
+    box-shadow: 0 12px 25px 0 rgba(199, 175, 189, .25);
     opacity: 0;
     transform: scale(0.6);
     transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
   }
+
   .modal-wrap img {
     display: block;
     width: 100%;
     height: auto;
   }
+
   .modal-wrap p {
     padding: 20px 30px 0 30px;
   }
-  .modal-btn:checked ~ .modal .modal-wrap{
+
+  .modal-btn:checked ~ .modal .modal-wrap {
     opacity: 1;
     transform: scale(1);
     transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;
@@ -139,14 +174,74 @@
   }
 }
 
-.h-full-i{
+.h-full-i {
   height: 100% !important;
 }
-.link-preview{
-  .Description{
+
+.link-preview {
+  .Description {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
   }
+}
+
+.project-cat-active {
+  color: #000000;
+  font-weight: bold;
+  border-bottom: 2px solid #000000;
+}
+
+.project-card {
+  overflow: hidden;
+
+  img {
+    transform: scale(1);
+    transition: all 200ms ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.2);
+  }
+}
+
+.project-card-title {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.single-project-thumb {
+  opacity: .5;
+}
+
+.active-thumb {
+  border: 2px solid #fd7150;
+
+}
+
+.webkit-inline-box {
+  display: inline-flex;
+}
+
+.project-video-dialog {
+  button {
+    z-index: 10;
+    background-color: #fd7150;
+    border-radius: 50%;
+    top: 5px;
+    right: 5px;
+
+    svg {
+      fill: white;
+      padding: 3px;
+    }
+  }
+}
+
+.project-single-gallery-height {
+  height: calc(100vh - 221px);
+  @media screen and (max-width: 700px) {
+    height: auto;
+  }
+
 }

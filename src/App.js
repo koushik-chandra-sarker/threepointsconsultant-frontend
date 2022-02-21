@@ -8,6 +8,7 @@ import News from "./pages/News";
 import Publication from "./pages/Publications";
 import Contact from "./pages/Contact";
 import Layout from "./layout/Layout";
+import SingleProject from "./pages/Projects/SingleProject";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="about" element={<About/>}/>
                 <Route path="about" element={<About/>}/>
                 <Route path="project" element={<Project/>}/>
+                <Route path="project/:id" element={<SingleProject/>}/>
                 <Route path="news" element={<News/>}/>
                 <Route path="publication" element={<Publication/>}/>
                 <Route path="contact" element={<Contact/>}/>
