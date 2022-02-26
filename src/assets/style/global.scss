@@ -245,3 +245,60 @@
   }
 
 }
+
+.project-info-dialog {
+  padding: 40px;
+  max-width: 90% !important;
+  max-height: 90% !important;
+  display: inline-flex !important;
+  div{
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+
+  button {
+    z-index: 10;
+    background-color: #fd7150;
+    border-radius: 50%;
+    top: 5px;
+    right: 5px;
+
+    svg {
+      fill: white;
+      padding: 3px;
+    }
+  }
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #196be7;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #FF3D00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

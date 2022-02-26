@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import customCss from './Home.module.scss'
+import _ from "lodash"
 const slider = [{
     title: 'Title 1',
     description: 'Description. Vivamus ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
@@ -18,7 +19,7 @@ const slider = [{
     subTitle: 'Subtitle 1',
     image: 'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 }];
-const Home = () => {
+const Home = (props) => {
     return (
         <div className={"page-full-height"}>
             < Slider
@@ -26,7 +27,9 @@ const Home = () => {
                 classNames={customCss}
             >
 
-                {slider.map((item, index) => (
+                {
+                    !_.isEmpty(props.slider)?
+                    props.slider.map((item, index) => (
                     < div
                         key={index}
                         className={customCss.sliderContent}
@@ -41,7 +44,9 @@ const Home = () => {
                         }
 
                     < / div>
-                ))}
+                ))
+                :<></>
+                }
             </ Slider>
         </div>
     );

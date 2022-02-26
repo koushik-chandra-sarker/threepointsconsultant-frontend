@@ -34,7 +34,7 @@ const Header = () => {
                         </div>
                     </div>
                     {/* Nav desktop view */}
-                    <ul className="desktop-menu w-full hidden md:flex pl-0 list-style-none ">
+                    <ul className="desktop-menu w-full hidden md:flex pl-0 list-none ">
                         <li className="px-2 whitespace-nowrap "><NavLink to={"/"}>Home</NavLink></li>
                         <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/about"}>About Us</NavLink></li>
                         <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/project"}>Projects</NavLink></li>
@@ -49,7 +49,7 @@ const Header = () => {
             </nav>
             {/* Nav mobile view */}
             <div className={!activeHamburger? homeCss.hamburgerActive:""}>
-                <ul className={`${homeCss.mobileMenu} "mobile-menu w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-style-none"`}>
+                <ul className={`${homeCss.mobileMenu} "mobile-menu w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-none ml-0"`}>
                     <li className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/about"}>About Us</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
