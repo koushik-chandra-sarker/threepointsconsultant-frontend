@@ -20,8 +20,7 @@
 
 .desktop-menu .active, .mobile-menu .active {
   color: black;
-  font-weight: bold;
-  border-bottom: 2px solid #000000; }
+  font-weight: bold; }
 
 .modal-parent .full-height {
   min-height: 100vh; }
@@ -173,7 +172,7 @@
 
 .project-info-dialog {
   padding: 40px;
-  max-width: 90% !important;
+  max-width: max-content !important;
   max-height: 90% !important;
   display: inline-flex !important; }
   .project-info-dialog div::-webkit-scrollbar {

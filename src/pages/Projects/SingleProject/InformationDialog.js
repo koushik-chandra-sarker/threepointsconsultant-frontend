@@ -2,7 +2,7 @@ import React from 'react';
 
 const InformationDialog = ({info}) => {
     return (
-        <div className={"text-gray-600 text-xs sm:base"}>
+        <div className={"text-gray-600 text-xs sm:base leading-8"}>
                 {/*make a borderless table with 2 columns*/}
             <div dangerouslySetInnerHTML={{__html:info}}/>
                 {/*<table  className={"w-full leading-8"}>
