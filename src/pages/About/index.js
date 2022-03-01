@@ -6,7 +6,7 @@ import logo from "../../assets/images/logo .png";
 import {Helmet} from "react-helmet";
 const About = (props) => {
     return (
-        <div className={"page-full-height mt-5 leading-8 text-gray-600"}>
+        <div className={"page-full-height my-5 leading-8 text-gray-600"}>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>About | 3PointsConsultant-An Architectural Consulting Firm, Architecture Firm in bangladesh, Tapon Sarker Architects,

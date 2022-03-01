@@ -50,32 +50,64 @@ const Home = (props) => {
                 <meta name="twitter:image:type" content="image/png" />
                 <meta name="twitter:image:alt" content="3points consultant" />
             </Helmet>
-            < Slider
-                autoplay={3000}
-                classNames={customCss}
-            >
+            <div className={"md:inline hidden"}>
+                < Slider
+                    autoplay={3000}
+                    classNames={customCss}
+                >
 
-                {
-                    !_.isEmpty(props.slider)?
-                    props.slider.map((item, index) => (
-                    < div
-                        key={index}
-                        className={customCss.sliderContent}
-                        style={{background: `url( '${item.image}') no-repeat  center  center `}}
-                    >
-                        {
-                            item.title &&
-                            < div className={customCss.inner}>
-                                <h1> {item.title} </ h1>
-                                <p> {item.subTitle} </ p>
-                            </ div>
-                        }
+                    {
+                        !_.isEmpty(props.slider)?
+                            props.slider.map((item, index) => (
+                                < div
+                                    key={index}
+                                    className={customCss.sliderContent}
+                                    style={{background: `url( '${item.image}') no-repeat  center  center `}}
+                                >
+                                    {
+                                        item.title &&
+                                        < div className={customCss.inner}>
+                                            <h1> {item.title} </ h1>
+                                            <p> {item.subTitle} </ p>
+                                        </ div>
+                                    }
 
-                    < / div>
-                ))
-                :<></>
-                }
-            </ Slider>
+                                < / div>
+                            ))
+                            :<></>
+                    }
+                </ Slider>
+            </div>
+            <div className={`${customCss.mobileSlider} md:hidden`}>
+                < Slider
+                    autoplay={3000}
+                    buttons={false}
+                        classNames={customCss}
+                >
+
+                    {
+                        !_.isEmpty(props.mobileSlider)?
+                            props.mobileSlider.map((item, index) => (
+                                < div
+                                    key={index}
+                                    className={customCss.sliderContent}
+                                    style={{background: `url( '${item.image}') no-repeat  center  center `}}
+                                >
+                                    {
+                                        item.title &&
+                                        < div className={customCss.inner}>
+                                            <h1> {item.title} </ h1>
+                                            <p> {item.subTitle} </ p>
+                                        </ div>
+                                    }
+
+                                < / div>
+                            ))
+                            :<></>
+                    }
+                </ Slider>
+            </div>
+
         </div>
     );
 };

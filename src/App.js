@@ -12,6 +12,7 @@ import SingleProject from "./pages/Projects/SingleProject";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {getSiteDetails} from "./services/site/Action";
+import NewsSingle from "./pages/News/NewsSingle";
 function App() {
     const dispatch = useDispatch();
     const site = useSelector(state => state.site);
@@ -22,11 +23,12 @@ function App() {
     return (
         <Layout>
             <Routes>
-                <Route path="/" element={<Home slider={site.data.homeSlider}/>}/>
+                <Route path="/" element={<Home slider={site.data.homeSlider} mobileSlider={site.data.homeMobileSlider}/>}/>
                 <Route path="about" element={<About about={site.data.about}/>}/>
                 <Route path="project" element={<Project category={site.data.projectCategory}/>}/>
                 <Route path="project/:category/:id" element={<SingleProject/>}/>
                 <Route path="news" element={<News/>}/>
+                <Route path="news/:id" element={<NewsSingle/>}/>
                 <Route path="publication" element={<Publication categorys={site.data.publicationCategory}/>}/>
                 <Route path="contact" element={<Contact contact={site.data.contact}/>}/>
             </Routes>

@@ -1,3 +1,18 @@
+.mobileSlider {
+  height: 100%; }
+  @media (max-width: 768px) {
+    .mobileSlider .slider {
+      height: 100% !important; } }
+  .mobileSlider a.previousButton svg, .mobileSlider a.nextButton svg {
+    height: 20px;
+    width: 20px; }
+    .mobileSlider a.previousButton svg polygon, .mobileSlider a.nextButton svg polygon {
+      fill: #1993e7; }
+  .mobileSlider a.previousButton {
+    left: 0 !important; }
+  .mobileSlider a.nextButton {
+    right: 0 !important; }
+
 .slider {
   position: relative;
   width: 100%;

@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from "../../assets/images/logo .png"
 import {Link, NavLink} from "react-router-dom";
 import {SITE_URL} from "../../constants";
 import homeCss from "./Header.module.scss"
+import {CustomDialog} from "react-st-modal";
+import SearchDialog from "../../pages/Home/SearchDialog";
+
 const Header = () => {
-    const[activeHamburger, setActiveHamburger] = React.useState(false);
+    const [activeHamburger, setActiveHamburger] = useState(false);
+    const [openSearchDialog, setOpenSearchDialog] = useState(null);
+
+    function handleOpenSearchDialog() {
+        setOpenSearchDialog(!openSearchDialog);
+    };
+    // useEffect(() => {
+    //     console.log(openSearchDialog);
+    // },[openSearchDialog]);
+
     return (
         <div>
+
+                <SearchDialog state={{openSearchDialog, setOpenSearchDialog}}/>
+
             <nav
                 className="relative w-full flex items-center justify-between py-4 text-gray-500">
                 <div className=" w-full items-center justify-between">
@@ -22,35 +37,44 @@ const Header = () => {
                            href={`https://www.facebook.com/sharer.php?u=${SITE_URL}`}>
                             <i className="fas fa-share-alt text-gray-400"/>
                         </a>
-                        <i className="fas fa-search text-gray-400 mt-1"/>
+                        <button
+                            onClick={handleOpenSearchDialog}
+                        >
+                            <i className="fas fa-search text-gray-400 mt-1"/>
+                        </button>
+
                     </div>
                     <div className={"flex justify-end w-full"}>
                         <div id={"Hamburger"}
-                             onClick={()=>setActiveHamburger(!activeHamburger)}
-                             className={`${homeCss.hamburger} ${activeHamburger? homeCss.hamburgerActive:""} md:hidden block`}>
+                             onClick={() => setActiveHamburger(!activeHamburger)}
+                             className={`${homeCss.hamburger} ${activeHamburger ? homeCss.hamburgerActive : ""} md:hidden block`}>
                             <span className={homeCss.line1}/>
                             <span className={homeCss.line2}/>
                             <span className={homeCss.line3}/>
                         </div>
                     </div>
                     {/* Nav desktop view */}
-                    <ul className="desktop-menu w-full hidden md:flex pl-0 list-none ">
+                    <ul className="desktop-menu w-full hidden md:flex pl-0 list-none m-0 ">
                         <li className="px-2 whitespace-nowrap "><NavLink to={"/"}>Home</NavLink></li>
                         <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/about"}>About Us</NavLink></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/project"}>Projects</NavLink></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/news"}>News</NavLink></li>
-                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/publication"}>Publications</NavLink>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/project"}>Projects</NavLink>
                         </li>
-                        <li className="pl-2 whitespace-nowrap border-l-2"><NavLink to={"/contact"}>Contact</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink to={"/news"}>News</NavLink></li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink
+                            to={"/publication"}>Publications</NavLink>
+                        </li>
+                        <li className="pl-2 whitespace-nowrap border-l-2"><NavLink to={"/contact"}>Contact</NavLink>
+                        </li>
                     </ul>
 
 
                 </div>
             </nav>
             {/* Nav mobile view */}
-            <div className={!activeHamburger? homeCss.hamburgerActive:""}>
+            <div className={!activeHamburger ? homeCss.hamburgerActive : ""}>
                 <ul className={`${homeCss.mobileMenu} "mobile-menu w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-none ml-0"`}>
-                    <li className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink></li>
+                    <li className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink>
+                    </li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/about"}>About Us</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
                     <li className="px-2 whitespace-nowrap"><NavLink to={"/news"}>News</NavLink></li>

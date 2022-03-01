@@ -176,7 +176,25 @@
 .h-full-i {
   height: 100% !important;
 }
-
+.search-model {
+  max-height: calc(100vh - 300px);
+  padding-bottom: 10px;
+  left: 25% !important;
+  .content{
+    max-height: calc(100vh - 395px);
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 768px){
+    //max-height: calc(100vh - 100px);
+    padding-bottom: 10px;
+    left: 8% !important;
+    top: 10% !important;
+    .content{
+      max-height: calc(100vh - 395px);
+      margin-bottom: 10px;
+    }
+  }
+}
 .link-preview {
   .Description {
     white-space: nowrap;

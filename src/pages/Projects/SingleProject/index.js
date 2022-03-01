@@ -162,7 +162,7 @@ const SingleProject = () => {
                                         {
                                             project.data.videoType==="Link"?
                                                 project.data.videoLink &&
-                                                <li className={"text-gray-600 px-2 cursor-pointer"}>
+                                                <li className={"text-gray-600 border-r-2 px-2 cursor-pointer"}>
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.videoLink}/>, {
@@ -177,7 +177,7 @@ const SingleProject = () => {
                                                 </li>
                                                 :
                                                 project.data.video &&
-                                                <li className={"text-gray-600 px-2 cursor-pointer"}>
+                                                <li className={"text-gray-600 border-r-2 px-2 cursor-pointer"}>
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.video}/>, {
@@ -193,7 +193,7 @@ const SingleProject = () => {
                                         }
                                         {
                                             project.data.information &&
-                                            <li className={"text-gray-600 border-l-2 pl-2 cursor-pointer"}>
+                                            <li className={"text-gray-600 pl-2 cursor-pointer"}>
                                                 <button
                                                     onClick={async () => {
                                                         const result = await CustomDialog(<InformationDialog info={project.data.information}/>, {
@@ -216,7 +216,7 @@ const SingleProject = () => {
                                         {
                                             project.data.videoType==="Link"?
                                                 project.data.videoLink &&
-                                                <li className={"text-gray-600 px-2 cursor-pointer"}>
+                                                <li className={"text-gray-600 px-2 border-l-2 cursor-pointer"}>
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.videoLink}/>, {
@@ -231,7 +231,7 @@ const SingleProject = () => {
                                                 </li>
                                                 :
                                                 project.data.video &&
-                                                <li className={"text-gray-600 px-2 cursor-pointer"}>
+                                                <li className={"text-gray-600 border-r-2 px-2 cursor-pointer"}>
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.video}/>, {
@@ -248,7 +248,7 @@ const SingleProject = () => {
 
                                         {
                                             project.data.information &&
-                                            <li className={"text-gray-600 border-l-2 pl-2 cursor-pointer"}>
+                                                <li className={`text-gray-600 pl-2 cursor-pointer`}>
                                                 <button
                                                     onClick={async () => {
                                                         const result = await CustomDialog(<InformationDialog info={ project.data.information}/>, {
@@ -286,9 +286,8 @@ const SingleProject = () => {
                                 {/*thumbnail slider:end*/}
                                 {/*image slider:start*/}
                                 <div className={'w-full flex relative border'}>
-                                    <div className={"w-full absolute h-full blur-sm bg-cover"}
-                                         style={{backgroundImage: "url(" + `${selectedImage}` + ")"}}/>
-                                    <div className={`w-full h-full flex justify-between relative p-4`}>
+                                    <div className={"w-full absolute h-full blur-sm bg-cover"}/>
+                                    <div className={`w-full h-full flex justify-between relative`}>
                                         {/*prev button*/}
                                         <div onClick={handlePrev}
                                              className={'flex items-center p-2 absolute left-0 top-2/4 -translate-y-2/4 cursor-pointer'}>
