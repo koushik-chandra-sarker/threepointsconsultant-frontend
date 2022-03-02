@@ -20,6 +20,11 @@ module.exports = {
             decimal: 'decimal',
             square: 'square',
             roman: 'upper-roman'
+        },
+        extend: {
+            height: {
+                '128': '32rem',
+            }
         }
 
     },

@@ -66,18 +66,35 @@ const SingleProject = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [selectedImage, setSelectedImage] = useState("");
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const project = useSelector(store=> store.project)
-    const getSelectedImage = (index) => {
-        return images[index].original;
+    const getImageByIndex = (index) => {
+        if (!_.isEmpty(project.data)) {
+            if (!_.isEmpty(project.data.images)) {
+                return project.data.images[index].image
+            }
+        }
+        return ""
     };
+    useEffect(()=>{
+        if (!_.isEmpty(project.data)) {
+            if (!_.isEmpty(project.data.images)) {
+                setSelectedImage(getImageByIndex(selectedImageIndex))
+            }
+        }
+    },[project])
     const handleNext = () => {
-        if (selectedImage < images.length - 1) {
-            setSelectedImage(selectedImage + 1);
+        if (!_.isEmpty(project.data) && !_.isEmpty(project.data.images)) {
+            if (selectedImageIndex < project.data.images.length - 1) {
+                setSelectedImageIndex(selectedImageIndex + 1)
+            }
         }
     };
     const handlePrev = () => {
-        if (selectedImage > 0) {
-            setSelectedImage(selectedImage - 1);
+        if (!_.isEmpty(project.data) && !_.isEmpty(project.data.images)) {
+            if (selectedImageIndex > 0) {
+                setSelectedImageIndex(selectedImageIndex - 1)
+            }
         }
     };
     useEffect(() => {
@@ -85,6 +102,14 @@ const SingleProject = () => {
             dispatch(getProject(id))
         }
     }, [id]);
+    useEffect(() => {
+            setSelectedImage(getImageByIndex(selectedImageIndex))
+        }, [selectedImageIndex]);
+
+    function handelImageSelected( index) {
+        setSelectedImageIndex(index)
+    }
+
     return (
         <div className={"page-full-height"}>
             <Helmet>
@@ -271,8 +296,8 @@ const SingleProject = () => {
                                         {
                                             !_.isEmpty(project.data.images)?
                                                 project.data.images.map((img, index) => (
-                                                    <li onClick={() => setSelectedImage(img.image)} key={index}
-                                                        className={`${index === selectedImage ? "active-thumb" : "single-project-thumb"} cursor-pointer  md:initial md:w-full w-20 h-20 object-cover object-center`}>
+                                                    <li onClick={() => handelImageSelected(index)} key={index}
+                                                        className={`${index === selectedImageIndex ? "active-thumb" : "single-project-thumb"} cursor-pointer  md:initial md:w-full w-20 h-20 object-cover object-center`}>
                                                         <img className={"w-full h-full object-cover"} src={img.small_image} alt=""/>
                                                     </li>
                                                 )
