@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import logo from "../../assets/images/logo .png"
 import {Link, NavLink} from "react-router-dom";
-import {SITE_URL} from "../../constants";
+import {DOMAIN, SITE_URL} from "../../constants";
 import homeCss from "./Header.module.scss"
 import {CustomDialog} from "react-st-modal";
 import SearchDialog from "../../pages/Home/SearchDialog";
@@ -13,9 +13,6 @@ const Header = () => {
     function handleOpenSearchDialog() {
         setOpenSearchDialog(!openSearchDialog);
     };
-    // useEffect(() => {
-    //     console.log(openSearchDialog);
-    // },[openSearchDialog]);
 
     return (
         <div>
@@ -34,7 +31,7 @@ const Header = () => {
                     {/*share and search*/}
                     <div className={"flex gap-4 justify-end mb-1"}>
                         <a rel={"noreferrer"} target={"_blank"}
-                           href={`https://www.facebook.com/sharer.php?u=${SITE_URL}`}>
+                           href={`https://www.facebook.com/sharer.php?u=${DOMAIN}`}>
                             <i className="fas fa-share-alt text-gray-400"/>
                         </a>
                         <button
@@ -73,13 +70,13 @@ const Header = () => {
             {/* Nav mobile view */}
             <div className={!activeHamburger ? homeCss.hamburgerActive : ""}>
                 <ul className={`${homeCss.mobileMenu} "mobile-menu w-full md:hidden flex flex-col gap-2 border mb-5 p-5 list-none ml-0"`}>
-                    <li className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap "><NavLink to={"/"} className={"w-full block"}>Home</NavLink>
                     </li>
-                    <li className="px-2 whitespace-nowrap"><NavLink to={"/about"}>About Us</NavLink></li>
-                    <li className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
-                    <li className="px-2 whitespace-nowrap"><NavLink to={"/news"}>News</NavLink></li>
-                    <li className="px-2 whitespace-nowrap"><NavLink to={"/publication"}>Publications</NavLink></li>
-                    <li className="pl-2 whitespace-nowrap"><NavLink to={"/contact"}>Contact</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/about"}>About Us</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/news"}>News</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/publication"}>Publications</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="pl-2 whitespace-nowrap"><NavLink to={"/contact"}>Contact</NavLink></li>
                 </ul>
             </div>
 

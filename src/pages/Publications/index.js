@@ -54,7 +54,7 @@ const Publication = (props) => {
             <div className={'mt-10 flex flex-col gap-8'}>
                 {
                     props.categorys && props.categorys.map((category, index)=>(
-                        <div>
+                        <div key={`publication-${index}`}>
                             <h1 className={'text-2xl text-gray-500 mb-4'}>{category.name}</h1>
                             <div>
                                 <Splide
@@ -90,7 +90,9 @@ const Publication = (props) => {
                                         !_.isEmpty(category.publications)?
                                             category.publications.map((publication, i)=>(
                                                 <SplideSlide key={`publucation-${category.name}-${i}`}>
-                                                    <LinkPreview className={"link-preview h-full-i"} url={publication.link}  />
+                                                    <LinkPreview className={"link-preview h-full-i"} url={publication.link}
+                                                                 fallbackImageSrc={publication.image}
+                                                    />
                                                 </SplideSlide>
                                             ))
                                             :

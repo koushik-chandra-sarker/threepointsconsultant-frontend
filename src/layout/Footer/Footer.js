@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from "lodash";
 
 const Footer = ({contact}) => {
     return (
@@ -11,7 +12,7 @@ const Footer = ({contact}) => {
                 </div>
             </div>
             {
-                contact &&
+                !_.isEmpty(contact) &&
                 <div className={'flex flex-col md:flex-row w-full md:w-auto text-center md:text-left gap-4 md:mt-0 mt-5  md:text-base text-xs '}>
                     {/*social icons*/}
                     <div className={"flex justify-center items-end border-r-2 "}>

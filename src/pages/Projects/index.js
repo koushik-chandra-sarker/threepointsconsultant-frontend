@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProjectList} from "../../services/projects/Action";
 import _ from "lodash";
 
-const projectCategory = ["All Project", "Residential", "Commercial", "Industrial", "Institutional", "Religious"];
 
 const Project = (props) => {
 
@@ -18,7 +17,7 @@ const Project = (props) => {
     }
 
     useEffect(() => {
-        if (props.category) {
+        if (!_.isEmpty(props.category)) {
             setSelectedProject(props.category[0].id);
             getProjects(props.category[0].id);
         }
@@ -31,10 +30,10 @@ const Project = (props) => {
     return (
         <div className={"page-full-height"}>
             {/*projects menu*/}
-            <div className={'md:flex justify-center hidden'}>
-                <ul className="md:flex pl-0 list-none">
+            <div className={'md:flex justify-center hidden sticky top-0 pb-2 z-10 bg-white'}>
+                <ul className="md:flex pl-0 list-none ">
                     {
-                        props.category && props.category.map((category, index) => (
+                        !_.isEmpty(props.category) && props.category.map((category, index) => (
                                 <li onClick={() => handleSelectProject(category.id)}
                                     className={`px-2 whitespace-nowrap cursor-pointer ${index === 0 ? "" : "border-l-2"} `}
                                     key={`project-category-${index}`}>
@@ -47,25 +46,20 @@ const Project = (props) => {
                 </ul>
             </div>
             <select
+                defaultValue={selectedProject}
                 onChange={(e) => handleSelectProject(e.target.value, 0)}
-                className="md:hidden form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="sticky top-0 pb-2 z-10 bg-white  md:hidden form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 md:rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 aria-label=".form-select-sm example"
 
             >
                 {
-                    props.category &&
+                    !_.isEmpty(props.category) &&
                     props.category.map((category, index) => {
                         return (
-                            <option value={category.id} selected={category.id === selectedProject}
+                            <option value={category.id}
                                     key={`project-category-mobile-${index}`}>{category.name}</option>
                         )
                     })}
-                {/*<option selected>All Project</option>
-                <option value="1">Residential</option>
-                <option value="2">Commercial</option>
-                <option value="3">Industrial</option>
-                <option value="3">Institutional</option>
-                <option value="3">Religious</option>*/}
             </select>
             {/*projects*/}
             {
@@ -76,13 +70,13 @@ const Project = (props) => {
                         <span className="loader"></span>
                     </div> :
                     !_.isEmpty(projectList.data) ?
-                        <div className={"grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-10"}>
+                        <div className={"grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-5"}>
                             {
                                 projectList.data.map((project, i) => (
                                     <Link to={`/project/${project.type}/${project.id}`} key={`project-${i}`}
                                           className={`animate__animated ${selectedProject % 2 === 0 ? "animate__fadeInLeft" : "animate__fadeInRight"}`}>
                                         <div className={'relative project-card'}>
-                                            <img className={"w-full"}
+                                            <img className={"w-full h-96"}
                                                  src={project.thumbnail}
                                                  alt=""/>
                                             {/*title*/}

@@ -43,7 +43,7 @@ const NewsSingle = () => {
                                 }
 
                             </div>
-                            <div className={'flex gap-4 flex-col my-4'}>
+                            <div className={'flex gap-8 flex-col my-4'}>
                                 {
                                     news.data.images &&
                                     news.data.images.map((v, i) => {

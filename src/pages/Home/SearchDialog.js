@@ -29,7 +29,9 @@ const SearchDialog = ({state}) => {
             </div>
             <div className="flex items-center justify-center mt-8 z-50 w-full">
                 <div className="flex border-2 rounded w-5/6 md:w-auto justify-center ">
-                    <input onChange={(e) => setProjectName(e.target.value)} type="text" className="px-4 py-2 md:w-80 w-full"
+                    <input
+                        onKeyPress={(e) => {e.key === 'Enter' && handleSearchProjects()}}
+                        onChange={(e) => setProjectName(e.target.value)} type="text" className="px-4 py-2 md:w-80 w-full"
                            placeholder="Search..."/>
                     <button onClick={handleSearchProjects}
                             className="flex items-center justify-center px-4 border-l">

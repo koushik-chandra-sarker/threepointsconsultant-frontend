@@ -24,7 +24,7 @@ const News = () => {
                                 newsList.data.map((v, i) => (
                                     <Link to={`/news/${v.id}`} key={`news-${i}`}>
                                         <div className={"h-full rounded flex flex-col border divide-slate-200 overflow-hidden shadow-lg"}>
-                                            <img
+                                            <img className={"h-52 object-cover"}
                                                 src={v.thumbnail}
                                                 alt="thumbnail"/>
                                             <div className="px-6 py-4">

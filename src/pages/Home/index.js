@@ -5,6 +5,7 @@ import customCss from './Home.module.scss'
 import _ from "lodash"
 import {Helmet} from "react-helmet";
 import logo from "../../assets/images/logo .png"
+import {DOMAIN} from "../../constants";
 const Home = (props) => {
     return (
         <div className={"page-full-height"}>
@@ -30,8 +31,8 @@ const Home = (props) => {
                 {/*meta for web page share*/}
                 <meta property="og:title" content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
                 <meta property="og:description" content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta property="og:image" content={logo} />
-                <meta property="og:url" content="https://3pointsconsultant.com" />
+                <meta property="og:image" content={`${DOMAIN}${logo}`} />
+                <meta property="og:url" content={DOMAIN} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="3pointsconsultant" />
                 <meta property="og:locale" content="en_US" />

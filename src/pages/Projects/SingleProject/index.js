@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import Modal from "../../../components/Modal";
-import {CustomDialog, useDialog} from 'react-st-modal';
+import {CustomDialog} from 'react-st-modal';
 import VideoDialog from "./VideoDialog";
-import {FACEBOOK} from "../../../constants";
+import {DOMAIN} from "../../../constants";
 import InformationDialog from "./InformationDialog";
 import {useDispatch, useSelector} from "react-redux";
 import {getProject} from "../../../services/projects/Action";
@@ -11,56 +10,7 @@ import _ from "lodash";
 import logo from "../../../assets/images/logo .png";
 import {Helmet} from "react-helmet";
 
-const images = [
-    {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1015/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-];
+
 const SingleProject = () => {
     const {category,id} = useParams();
     const dispatch = useDispatch();
@@ -135,10 +85,18 @@ const SingleProject = () => {
                 <meta name="doc-rating" content="Safe For Kids"/>
 
                 {/*meta for web page share*/}
-                <meta property="og:title" content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
+                {
+                    project.data && project.data.title &&
+                    <meta property="og:title" content={project.data.title} />
+
+                }
                 <meta property="og:description" content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta property="og:image" content={logo} />
-                <meta property="og:url" content="https://3pointsconsultant.com" />
+                {
+                    project.data && project.data.thumbnail &&
+                    <meta property="og:image" content={project.data.thumbnail} />
+
+                }
+                <meta property="og:url" content={`${DOMAIN}/#/project/${id}`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="3pointsconsultant" />
                 <meta property="og:locale" content="en_US" />
@@ -331,7 +289,8 @@ const SingleProject = () => {
                                 {/*image slider:end*/}
                             </div>
                             <div className="flex justify-center py-2 ">
-                                <a className={"rounded-full border-2 w-10 h-10 flex justify-center items-center"} href={FACEBOOK}
+                                <a className={"rounded-full border-2 w-10 h-10 flex justify-center items-center"}
+                                   href={`https://www.facebook.com/sharer.php?u=${DOMAIN}/#/project/${id}`}
                                    target={"_blank"} rel={"noopener noreferrer"}>
                                     <i className="fab fa-facebook-f text-gray-400"></i>
                                 </a>
@@ -341,7 +300,6 @@ const SingleProject = () => {
                         <div className={"flex justify-center items-center h-40"}>
                             <h3 className={'w-full text-center'}>No Project Found</h3>
                         </div>
-
 
             }
 

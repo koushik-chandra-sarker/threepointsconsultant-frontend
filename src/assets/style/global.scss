@@ -322,3 +322,19 @@
     transform: rotate(360deg);
   }
 }
+
+.about-dialog{
+
+  button {
+    z-index: 10;
+    background-color: #fd7150;
+    border-radius: 50%;
+    //top: 5px;
+    //right: 5px;
+
+    svg {
+      fill: white;
+      padding: 3px;
+    }
+  }
+}
