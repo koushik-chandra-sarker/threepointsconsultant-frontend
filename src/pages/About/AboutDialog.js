@@ -13,7 +13,7 @@ const AboutDialog = ({team}) => {
                         <img
                             src={team.profilePicSmall}
                             alt="image"
-                            className="h-full w-full"/>
+                            className="h-full w-full object-cover"/>
                         :
                         <div
                             className={'h-full w-full w-fulltext-xs flex justify-center items-center bg-gray-300'}>
@@ -36,7 +36,7 @@ const AboutDialog = ({team}) => {
                  dangerouslySetInnerHTML={{__html: team.description}}/>
 
 
-            <ul className="flex flex-row mt-4 space-x-2 list-none">
+            <ul className="flex flex-row mt-4 ml-0 space-x-2 list-none">
                 {
                     team.facebookLink &&
                     <li>

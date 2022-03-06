@@ -3,7 +3,7 @@ import {Splide, SplideSlide} from "@splidejs/react-splide";
 import {LinkPreview} from "@dhaiwat10/react-link-preview";
 import _ from "lodash";
 import logo from "../../assets/images/logo .png";
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet-async";
 const Publication = (props) => {
     return (
         <div className={"page-full-height"}>
