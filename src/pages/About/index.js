@@ -71,7 +71,7 @@ const About = (props) => {
                                     className="text-gray-600 body-font mt-4 grid xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-4 sm:grid-col-3 grid-cols-2 gap-8">
                                     {
                                         props.about[0].teams.map((team, i) => (
-                                            <>
+                                            <div key={`team-${i}`}>
                                                 <div
                                                     onClick={async () => {
                                                         const result = await CustomDialog(<AboutDialog team={team}/>, {
@@ -216,7 +216,7 @@ const About = (props) => {
                                                     </div>
 
                                                 </Modal>*/}
-                                            </>
+                                            </div>
                                         ))
                                     }
 

@@ -76,7 +76,7 @@ const Project = (props) => {
                                     <Link to={`/project/${project.type}/${project.id}`} key={`project-${i}`}
                                           className={`animate__animated ${selectedProject % 2 === 0 ? "animate__fadeInLeft" : "animate__fadeInRight"}`}>
                                         <div className={'relative project-card'}>
-                                            <img className={"w-full h-96"}
+                                            <img className={"w-full "}
                                                  src={project.thumbnail}
                                                  alt=""/>
                                             {/*title*/}

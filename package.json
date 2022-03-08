@@ -1,5 +1,6 @@
 {
-  "name": "threepointsconsultant-frontend",
+  "name": "threepointsconsultant",
+  "homepage": "https://3pointsconsultant.com",
   "version": "1.0.0",
   "private": true,
   "dependencies": {

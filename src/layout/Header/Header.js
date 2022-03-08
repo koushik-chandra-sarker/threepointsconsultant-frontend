@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import logo from "../../assets/images/logo .png"
-import {Link, NavLink} from "react-router-dom";
-import {DOMAIN, SITE_URL} from "../../constants";
+import {NavLink} from "react-router-dom";
+import {DOMAIN} from "../../constants";
 import homeCss from "./Header.module.scss"
-import {CustomDialog} from "react-st-modal";
 import SearchDialog from "../../pages/Home/SearchDialog";
 
 const Header = () => {
@@ -23,7 +22,7 @@ const Header = () => {
                 className="relative w-full flex items-center justify-between py-4 text-gray-500">
                 <div className=" w-full items-center justify-between">
                     <a className="w-32 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1"
-                       href="#">
+                       href="/">
                         <img src={logo} alt="logo" loading="lazy"/>
                     </a>
                 </div>

@@ -7,7 +7,6 @@ import InformationDialog from "./InformationDialog";
 import {useDispatch, useSelector} from "react-redux";
 import {getProject} from "../../../services/projects/Action";
 import _ from "lodash";
-import logo from "../../../assets/images/logo .png";
 import {Helmet} from "react-helmet-async";
 
 
@@ -160,7 +159,6 @@ const SingleProject = () => {
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.videoLink}/>, {
-                                                                // title: 'Project Video',
                                                                 className: 'project-video-dialog',
                                                                 showCloseIcon: true,
                                                             });
@@ -175,7 +173,6 @@ const SingleProject = () => {
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.video}/>, {
-                                                                // title: 'Project Video',
                                                                 className: 'project-video-dialog',
                                                                 showCloseIcon: true,
                                                             });
@@ -191,7 +188,6 @@ const SingleProject = () => {
                                                 <button
                                                     onClick={async () => {
                                                         const result = await CustomDialog(<InformationDialog info={project.data.information}/>, {
-                                                            // title: 'Project Video',
                                                             className: 'project-info-dialog',
                                                             showCloseIcon: true,
                                                         });
@@ -214,7 +210,6 @@ const SingleProject = () => {
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.videoLink}/>, {
-                                                                // title: 'Project Video',
                                                                 className: 'project-video-dialog',
                                                                 showCloseIcon: true,
                                                             });
@@ -229,7 +224,6 @@ const SingleProject = () => {
                                                     <button
                                                         onClick={async () => {
                                                             const result = await CustomDialog(<VideoDialog link={project.data.video}/>, {
-                                                                // title: 'Project Video',
                                                                 className: 'project-video-dialog',
                                                                 showCloseIcon: true,
                                                             });
@@ -246,7 +240,6 @@ const SingleProject = () => {
                                                 <button
                                                     onClick={async () => {
                                                         const result = await CustomDialog(<InformationDialog info={ project.data.information}/>, {
-                                                            // title: 'Project Video',
                                                             className: 'project-info-dialog',
                                                             showCloseIcon: true,
                                                         });
@@ -260,14 +253,17 @@ const SingleProject = () => {
                                     </ul>
                                 </div>
                                 {/*thumbnail slider:start*/}
-                                <div className={'md:w-32 md:h-auto h-16 md:overflow-y-auto overflow-x-auto custom-scrollbar'}>
-                                    <ul className={'whitespace-nowrap h-full w-full md:flex md:flex-col  flex-row md:gap-4 list-none m-0'}>
+                                <div className={'md:w-32 md:h-auto h-20 md:overflow-y-auto overflow-x-auto custom-scrollbar'}>
+                                    <ul className={'whitespace-nowrap h-full w-full md:flex md:flex-col  md:flex-row md:gap-4 list-none m-0'}>
                                         {
                                             !_.isEmpty(project.data.images)?
                                                 project.data.images.map((img, index) => (
                                                     <li onClick={() => handelImageSelected(index)} key={index}
-                                                        className={`${index === selectedImageIndex ? "active-thumb" : "single-project-thumb"} cursor-pointer  md:initial md:w-full w-20 h-20 object-cover object-center`}>
-                                                        <img className={"w-full h-full object-cover"} src={img.small_image} alt=""/>
+                                                        className={`${index === selectedImageIndex ? "active-thumb" : "single-project-thumb"} cursor-pointer  md:initial inline-block md:w-full w-20 md:h-20 h-full md:mx-0 mx-1 object-cover object-center`}>
+                                                        <div className={'h-full flex justify-center'}>
+                                                            <img className={"  object-contain"} src={img.image} alt=""/>
+                                                        </div>
+
                                                     </li>
                                                 )
                                             )
