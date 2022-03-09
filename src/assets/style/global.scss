@@ -243,7 +243,21 @@
 }
 
 .project-video-dialog {
+  max-width: 80% !important;
+  max-height: 85% !important;
+  height: 85% !important;
+  @media screen and (max-width: 700px) {
+    max-width: 100% !important;
+    max-height: 50% !important
+  }
+  div{
+    height: 100% !important;
+    div{
+      height: 100% !important;
+    }
+  }
   button {
+    display: none;
     z-index: 10;
     background-color: #fd7150;
     border-radius: 50%;
@@ -254,6 +268,9 @@
       fill: white;
       padding: 3px;
     }
+  }
+  &:hover button {
+    display: block;
   }
 }
 
@@ -334,6 +351,29 @@
     svg {
       fill: white;
       padding: 3px;
+    }
+  }
+}
+
+.single-project{
+  .image-slider{
+    .prev-button, .next-button{
+      transform: scale(0);
+      transition: all 200ms ease-in-out;
+      i{
+        color: #b0afaf;
+        @media screen and (max-width: 700px) {
+          background: rgba(9, 9, 9, 0.31);
+          color: white;
+        }
+      }
+
+    }
+    &:hover{
+      .prev-button, .next-button{
+        transform: scale(1);
+
+      }
     }
   }
 }

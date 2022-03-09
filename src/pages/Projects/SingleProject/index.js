@@ -16,6 +16,7 @@ const SingleProject = () => {
     const navigate = useNavigate();
     const [selectedImage, setSelectedImage] = useState("");
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const [totalImage, setTotalImage] = useState(0);
     const project = useSelector(store=> store.project)
     const getImageByIndex = (index) => {
         if (!_.isEmpty(project.data)) {
@@ -28,6 +29,7 @@ const SingleProject = () => {
     useEffect(()=>{
         if (!_.isEmpty(project.data)) {
             if (!_.isEmpty(project.data.images)) {
+                setTotalImage(project.data.images.length)
                 setSelectedImage(getImageByIndex(selectedImageIndex))
             }
         }
@@ -133,7 +135,7 @@ const SingleProject = () => {
                         <span className="loader"></span>
                     </div> :
                     !_.isEmpty(project.data)?
-                        <>
+                        <div className={'single-project'}>
                             {/*mobile view project title*/}
                             <div className={" md:hidden  w-full"}>
                                 <button className={"mb-2"} onClick={() => navigate(-1)}>Back</button>
@@ -275,20 +277,20 @@ const SingleProject = () => {
                                 </div>
                                 {/*thumbnail slider:end*/}
                                 {/*image slider:start*/}
-                                <div className={'w-full flex relative border'}>
+                                <div className={'image-slider w-full flex relative border'}>
                                     <div className={"w-full absolute h-full blur-sm bg-cover"}/>
                                     <div className={`w-full h-full flex justify-between relative`}>
                                         {/*prev button*/}
                                         <div onClick={handlePrev}
-                                             className={'flex items-center p-2 absolute left-0 top-2/4 -translate-y-2/4 cursor-pointer'}>
-                                            <i className="fas fa-chevron-left p-2 bg-gray-600 text-white text-sm md:text-5xl"/>
+                                             className={`${selectedImageIndex===0? "hidden": "flex"} prev-button items-center p-2 absolute left-0 top-2/4 -translate-y-2/4 cursor-pointer`}>
+                                            <i className="fas fa-chevron-left p-2 text-white text-sm md:text-5xl"/>
                                         </div>
                                         {/*project image*/}
                                         <img className={'w-full object-contain'} src={selectedImage} alt=""/>
                                         {/*next button*/}
                                         <div onClick={handleNext}
-                                             className={'flex items-center p-2 absolute right-0 top-2/4 -translate-y-2/4 cursor-pointer'}>
-                                            <i className="fas fa-chevron-right p-2 bg-gray-600 text-white  text-sm md:text-5xl"/>
+                                             className={`${selectedImageIndex===totalImage-1? "hidden": "flex"} next-button items-center p-2 absolute right-0 top-2/4 -translate-y-2/4 cursor-pointer`}>
+                                            <i className="fas fa-chevron-right p-2 text-white  text-sm md:text-5xl"/>
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +304,7 @@ const SingleProject = () => {
                                     <i className="fab fa-facebook-f text-gray-400"></i>
                                 </a>
                             </div>
-                        </>
+                        </div>
                         :
                         <div className={"flex justify-center items-center h-40"}>
                             <h3 className={'w-full text-center'}>No Project Found</h3>
