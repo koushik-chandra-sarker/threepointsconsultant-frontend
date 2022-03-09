@@ -48,7 +48,7 @@ const Project = (props) => {
             <select
                 defaultValue={selectedProject}
                 onChange={(e) => handleSelectProject(e.target.value, 0)}
-                className="sticky top-0 pb-2 z-10 bg-white  md:hidden form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 md:rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                className="m-project-select-box sticky top-0 pb-2 z-10 bg-white  md:hidden form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 md:rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  focus:shadow-none focus:outline-none"
                 aria-label=".form-select-sm example"
 
             >

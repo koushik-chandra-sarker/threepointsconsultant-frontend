@@ -359,6 +359,7 @@
   .image-slider{
     .prev-button, .next-button{
       transform: scale(0);
+
       transition: all 200ms ease-in-out;
       i{
         color: #b0afaf;
@@ -367,7 +368,9 @@
           color: white;
         }
       }
-
+      @media screen and (max-width: 700px) {
+        transform: scale(1);
+      }
     }
     &:hover{
       .prev-button, .next-button{
@@ -375,5 +378,19 @@
 
       }
     }
+  }
+}
+.m-project-select-box{
+
+  option{
+    &:checked{
+      background-color: rgba(224, 224, 224, 0.69) !important;
+    }
+  }
+  option[selected] {
+    background-color: rgba(224, 224, 224, 0.69) !important;
+  }
+  option::selection{
+    background-color: rgba(224, 224, 224, 0.69) !important;
   }
 }
