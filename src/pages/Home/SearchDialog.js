@@ -54,49 +54,14 @@ const SearchDialog = ({state}) => {
                         :
                         !_.isEmpty(projects.data)?
                             projects.data.map((project, i)=>(
-                                <>
-                                    <div className={'px-4 py-2'}>
+                                <div className={'px-4 py-2'} key={`searched-project-${i}`}>
                                         <div className={'border flex gap-4 p-2'}>
                                             <img className={"w-20 h-20 object-cover"}
                                                  src={project.thumbnail}
                                                  alt=""/>
                                             <p className={""}>{project.name}</p>
                                         </div>
-                                    </div>
-                                    <div className={'px-4 py-2'}>
-                                        <div className={'border flex gap-4 p-2'}>
-                                            <img className={"w-20 h-20 object-cover"}
-                                                 src={project.thumbnail}
-                                                 alt=""/>
-                                            <p className={""}>{project.name}</p>
-                                        </div>
-                                    </div>
-                                    <div className={'px-4 py-2'}>
-                                        <div className={'border flex gap-4 p-2'}>
-                                            <img className={"w-20 h-20 object-cover"}
-                                                 src={project.thumbnail}
-                                                 alt=""/>
-                                            <p className={""}>{project.name}</p>
-                                        </div>
-                                    </div><div className={'px-4 py-2'}>
-                                    <div className={'border flex gap-4 p-2'}>
-                                        <img className={"w-20 h-20 object-cover"}
-                                             src={project.thumbnail}
-                                             alt=""/>
-                                        <p className={""}>{project.name}</p>
-                                    </div>
                                 </div>
-                                    <div className={'px-4 py-2'}>
-                                        <div className={'border flex gap-4 p-2'}>
-                                            <img className={"w-20 h-20 object-cover"}
-                                                 src={project.thumbnail}
-                                                 alt=""/>
-                                            <p className={""}>{project.name}</p>
-                                        </div>
-                                    </div>
-
-                                </>
-
                             ))
                             :
                             <div className={"z-50 flex justify-center my-8"}>
