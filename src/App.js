@@ -13,6 +13,7 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {getSiteDetails} from "./services/site/Action";
 import NewsSingle from "./pages/News/NewsSingle";
+import PublicationSingle from "./pages/Publications/PublicationSingle";
 function App() {
     const dispatch = useDispatch();
     const site = useSelector(state => state.site);
@@ -30,6 +31,7 @@ function App() {
                 <Route path="news" element={<News/>}/>
                 <Route path="news/:id" element={<NewsSingle/>}/>
                 <Route path="publication" element={<Publication categorys={site.data.publicationCategory}/>}/>
+                <Route path="publication/:id" element={<PublicationSingle/>}/>
                 <Route path="contact" element={<Contact contact={site.data.contact}/>}/>
             </Routes>
         </Layout>

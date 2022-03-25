@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getNews, getNewsList} from "../../../services/news/Action";
+import {getNews} from "../../../services/news/Action";
 import _ from "lodash";
 
 const NewsSingle = () => {
     const {id} = useParams();
     const news = useSelector(state => state.news);
-    console.log(news);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getNews(id));
@@ -49,7 +48,7 @@ const NewsSingle = () => {
                                     news.data.images.map((v, i) => {
                                         return (
                                             <img key={`news-image-${i}`} className="object-cover"
-                                                 alt={`news-image-${i}`}
+                                                 alt={`news-i-${i}`}
                                                  src={v.image}/>
                                         )
                                     })

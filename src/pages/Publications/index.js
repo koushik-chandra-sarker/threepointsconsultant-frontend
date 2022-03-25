@@ -1,22 +1,56 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import {LinkPreview} from "@dhaiwat10/react-link-preview";
 import _ from "lodash";
 import logo from "../../assets/images/logo .png";
 import {Helmet} from "react-helmet-async";
+import {Link} from "react-router-dom";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 const Publication = (props) => {
+    const {width} = useWindowDimensions();
+    function sliderButtonHide(prev, next, publicaciones) {
+        if(!_.isEmpty(publicaciones) ) {
+            if (width > 768 && width < 1024) {
+                if (publicaciones.length <=3) {
+                    prev.Components.Arrows.arrows.prev.classList.add('hidden-button')
+                    prev.Components.Arrows.arrows.next.classList.add('hidden-button')
+                }
+            }
+            if (width > 1024) {
+                if (publicaciones.length <=4) {
+                    prev.Components.Arrows.arrows.prev.classList.add('hidden-button')
+                    prev.Components.Arrows.arrows.next.classList.add('hidden-button')
+                }
+            }
+            if (width < 768 && width > 640) {
+                if (publicaciones.length <=2) {
+                    prev.Components.Arrows.arrows.prev.classList.add('hidden-button')
+                    prev.Components.Arrows.arrows.next.classList.add('hidden-button')
+                }
+            }
+            if (width < 640) {
+                if (publicaciones.length <=1) {
+                    prev.Components.Arrows.arrows.prev.classList.add('hidden-button')
+                    prev.Components.Arrows.arrows.next.classList.add('hidden-button')
+                }
+            }
+        }
+    }
+
     return (
         <div className={"page-full-height"}>
             <Helmet>
-                <meta charSet="utf-8" />
-                <title>Publication | 3pointsconsultant-An Architectural Consulting Firm, Architecture Firm in bangladesh, Tapon Sarker Architects,
-                    Consulting agency, Architectural Designer, Engineering Service  </title>
+                <meta charSet="utf-8"/>
+                <title>Publication | 3pointsconsultant-An Architectural Consulting Firm, Architecture Firm in
+                    bangladesh, Tapon Sarker Architects,
+                    Consulting agency, Architectural Designer, Engineering Service </title>
                 {/*meta for publication page*/}
                 <meta name="description" content="3PointsConsultant is a professional architectural firm, Architectural firm in Bangladesh,
-                    Tapon Sarker Architects, Consulting agency, Architectural Designer, Engineering Service" />
+                    Tapon Sarker Architects, Consulting agency, Architectural Designer, Engineering Service"/>
                 <meta name="keywords" content="publication, publication of 3PointsConsultant, publication in 3PointsConsultant, Architectural publication in dhaka,Architectural publication in bangladesh, Architectural firm in Bangladesh, Tapon Sarker Architects,
-                    Consulting agency, Architectural Designer, Engineering Service" />
-                <meta name="author" content="3PointsConsultant" />
+                    Consulting agency, Architectural Designer, Engineering Service"/>
+                <meta name="author" content="3PointsConsultant"/>
                 <meta name="copyright" content="3points consultant"/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="revisit-after" content="1 days"/>
@@ -29,39 +63,43 @@ const Publication = (props) => {
                 <meta name="doc-rating" content="Safe For Kids"/>
 
                 {/*meta for web page share*/}
-                <meta property="og:title" content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta property="og:description" content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta property="og:image" content={logo} />
-                <meta property="og:url" content="https://3pointsconsultant.com" />
-                <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="3pointsconsultant" />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:locale:alternate" content="bn_BD" />
+                <meta property="og:title"
+                      content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment."/>
+                <meta property="og:description"
+                      content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment."/>
+                <meta property="og:image" content={logo}/>
+                <meta property="og:url" content="https://3pointsconsultant.com"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:site_name" content="3pointsconsultant"/>
+                <meta property="og:locale" content="en_US"/>
+                <meta property="og:locale:alternate" content="bn_BD"/>
 
                 {/*meta for twitter*/}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@3points_consultant" />
-                <meta name="twitter:creator" content="@3points_consultant" />
-                <meta name="twitter:title" content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta name="twitter:description" content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment." />
-                <meta name="twitter:image" content={logo} />
-                <meta name="twitter:image:alt" content="3points consultant" />
-                <meta name="twitter:image:width" content="1200" />
-                <meta name="twitter:image:height" content="630" />
-                <meta name="twitter:image:type" content="image/png" />
-                <meta name="twitter:image:alt" content="3points consultant" />
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:site" content="@3points_consultant"/>
+                <meta name="twitter:creator" content="@3points_consultant"/>
+                <meta name="twitter:title"
+                      content="3points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment."/>
+                <meta name="twitter:description"
+                      content="3 points consultant- an architecture design firm was formed in March 2012 .This promising firm is now involved with various types of projects such as residential, commercial, industrial, garments and interior design and execution.Principle architect himself is the founder of this firm. He is a BUET graduate and also MIAB .He has over five years job experience under some renowned consultancy firms of Dhaka city. Now he and his team are fully involved with 3points and working for a better society and environment."/>
+                <meta name="twitter:image" content={logo}/>
+                <meta name="twitter:image:alt" content="3points consultant"/>
+                <meta name="twitter:image:width" content="1200"/>
+                <meta name="twitter:image:height" content="630"/>
+                <meta name="twitter:image:type" content="image/png"/>
+                <meta name="twitter:image:alt" content="3points consultant"/>
             </Helmet>
             <div className={'mt-10 flex flex-col gap-8'}>
                 {
-                    props.categorys && props.categorys.map((category, index)=>(
+                    props.categorys && props.categorys.map((category, index) => (
                         <div key={`publication-${index}`}>
                             <h1 className={'text-2xl text-gray-500 mb-4'}>{category.name}</h1>
                             <div>
                                 <Splide
-                                    options={ {
+                                    options={{
                                         rewind: true,
                                         // width : 800,
-                                        gap   : '1rem',
+                                        gap: '1rem',
                                         perPage: 4,
                                         height: '22rem',
                                         weight: '20rem',
@@ -82,17 +120,81 @@ const Publication = (props) => {
 
                                             },
                                         },
-                                    } }
-
-
+                                    }}
+                                    // className={"hide-nextButton"}
+                                    onArrowsMounted={(prev, next) => {
+                                      sliderButtonHide(prev, next, category.publications)
+                                    }}
                                 >
                                     {
-                                        !_.isEmpty(category.publications)?
-                                            category.publications.map((publication, i)=>(
-                                                <SplideSlide key={`publucation-${category.name}-${i}`}>
-                                                    <LinkPreview className={"link-preview h-full-i"} url={publication.link}
-                                                                 fallbackImageSrc={publication.image}
-                                                    />
+                                        !_.isEmpty(category.publications) ?
+                                            category.publications.map((publication, i) => (
+                                                <SplideSlide key={`publucation-${category.name}-${i}`} >
+                                                    {
+                                                        publication.type === "Magazine" && publication.manualContent ?
+                                                            <Link to={`/publication/${publication.id}`}>
+                                                                <div
+                                                                    className={"h-full rounded flex flex-col border divide-slate-200 overflow-hidden shadow-lg"}>
+                                                                    <img className={"h-52 object-cover"}
+                                                                         src={publication.image}
+                                                                         alt="thumbnail"/>
+                                                                    <div className="px-6 py-4">
+                                                                        <h3 className="mb-2 mt-0">
+                                                                            {publication.title}
+                                                                        </h3>
+                                                                        <div
+                                                                            className={'overflow-hidden whitespace-nowrap text-ellipsis '}>
+                                                                             <span
+                                                                                 className={'text-gray-500 md:text-base text-xs '}>
+                                                                                {publication.subTitle}
+                                                                             </span>
+                                                                        </div>
+                                                                        <div className={"mt-1"}>
+                                                                            <span
+                                                                                className={'text-gray-500 md:text-base text-xs capitalize '}>
+                                                                                {category.name}
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </Link>
+                                                            :
+                                                            publication.manualContent ?
+                                                                <a href={publication.link} target={"_blank"}
+                                                                   className={"cursor-pointer"}>
+                                                                    <div
+                                                                        className={"h-full rounded flex flex-col border divide-slate-200 overflow-hidden shadow-lg"}>
+                                                                        <img className={"h-52 object-cover"}
+                                                                             src={publication.image}
+                                                                             alt="thumbnail"/>
+                                                                        <div className="px-6 py-4">
+                                                                            <h3 className="mb-2 mt-0">
+                                                                                {publication.title}
+                                                                            </h3>
+                                                                            <div
+                                                                                className={'overflow-hidden whitespace-nowrap text-ellipsis '}>
+                                                                             <span
+                                                                                 className={'text-gray-500 md:text-base text-xs '}>
+                                                                                {publication.subTitle}
+                                                                             </span>
+                                                                            </div>
+                                                                            <div className={"mt-1"}>
+                                                                            <span
+                                                                                className={'text-gray-500 md:text-base text-xs capitalize '}>
+                                                                                {category.name}
+                                                                            </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                :
+                                                                <LinkPreview className={"link-preview h-full-i"}
+                                                                             url={publication.link}
+                                                                             fallbackImageSrc={publication.image}
+                                                                />
+                                                    }
+
                                                 </SplideSlide>
                                             ))
                                             :

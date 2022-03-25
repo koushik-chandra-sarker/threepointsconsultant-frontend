@@ -394,3 +394,17 @@
     background-color: rgba(224, 224, 224, 0.69) !important;
   }
 }
+
+.hide-nextButton{
+  .splide__arrow--next{
+    display: none;
+  }
+}
+.hide-prevButton{
+  .splide__arrow--prev{
+    display: none;
+  }
+}
+.hidden-button{
+  display: none !important;
+}
