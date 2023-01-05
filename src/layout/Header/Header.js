@@ -59,6 +59,9 @@ const Header = () => {
                         <li className="px-2 whitespace-nowrap border-l-2"><NavLink
                             to={"/publication"}>Publications</NavLink>
                         </li>
+                        <li className="px-2 whitespace-nowrap border-l-2"><NavLink
+                            to={"/accolades"}>Accolades</NavLink>
+                        </li>
                         <li className="pl-2 whitespace-nowrap border-l-2"><NavLink to={"/contact"}>Contact</NavLink>
                         </li>
                     </ul>
@@ -75,6 +78,7 @@ const Header = () => {
                     <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/project"}>Projects</NavLink></li>
                     <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/news"}>News</NavLink></li>
                     <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/publication"}>Publications</NavLink></li>
+                    <li   onClick={() => setActiveHamburger(!activeHamburger)} className="px-2 whitespace-nowrap"><NavLink to={"/accolades"}>Accolades</NavLink></li>
                     <li   onClick={() => setActiveHamburger(!activeHamburger)} className="pl-2 whitespace-nowrap"><NavLink to={"/contact"}>Contact</NavLink></li>
                 </ul>
             </div>
