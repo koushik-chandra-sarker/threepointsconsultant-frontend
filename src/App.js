@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Project from "./pages/Projects";
 import News from "./pages/News";
-import Publication from "./pages/Publications";
+import PublicationCategory from "./pages/Publications";
 import Contact from "./pages/Contact";
 import Layout from "./layout/Layout";
 import SingleProject from "./pages/Projects/SingleProject";
@@ -16,6 +16,7 @@ import NewsSingle from "./pages/News/NewsSingle";
 import PublicationSingle from "./pages/Publications/PublicationSingle";
 import Award from "./pages/Award";
 import AwardSingle from "./pages/Award/AwardSingle";
+import PublicationsList from "./pages/Publications/ListView";
 function App() {
     const dispatch = useDispatch();
     const site = useSelector(state => state.site);
@@ -32,8 +33,9 @@ function App() {
                 <Route path="project/:category/:id" element={<SingleProject/>}/>
                 <Route path="news" element={<News/>}/>
                 <Route path="news/:id" element={<NewsSingle/>}/>
-                <Route path="publication" element={<Publication categorys={site.data.publicationCategory}/>}/>
-                <Route path="publication/:id" element={<PublicationSingle/>}/>
+                <Route path="publication" element={<PublicationCategory categories={site.data.publicationCategory} loading={site?site.loading:true}/>}/>
+                <Route path="publication/:categoryId" element={<PublicationsList categories={site.data.publicationCategory}/>}/>
+                <Route path="magazine/:id" element={<PublicationSingle/>}/>
                 <Route path="accolades" element={<Award/>}/>
                 <Route path="accolades/:id" element={<AwardSingle/>}/>
                 <Route path="contact" element={<Contact contact={site.data.contact}/>}/>
