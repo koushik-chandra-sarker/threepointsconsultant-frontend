@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from "lodash";
-import gmail_icon from "../../assets/icon/gmail_icon.png"
+import gmail_icon from "../../assets/icon/gmailIcon.png"
 
 const AboutDialog = ({team}) => {
     return (

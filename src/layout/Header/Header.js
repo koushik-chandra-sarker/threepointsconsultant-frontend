@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from "../../assets/images/logo .png"
+import logo from "../../assets/images/logo.png"
 import {NavLink} from "react-router-dom";
 import {DOMAIN} from "../../constants";
 import homeCss from "./Header.module.scss"

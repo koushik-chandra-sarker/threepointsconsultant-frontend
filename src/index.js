@@ -8,7 +8,7 @@ import store from "./services/Store";
 import 'animate.css';
 import {HelmetProvider} from 'react-helmet-async';
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <HelmetProvider>
         <HashRouter>
             <Provider store={store}>

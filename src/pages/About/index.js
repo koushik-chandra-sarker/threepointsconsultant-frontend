@@ -1,7 +1,5 @@
 import React from 'react';
 import _ from "lodash";
-import logo from "../../assets/images/logo .png";
-import logo_box from "../../assets/images/logo-box.jpg";
 import {DOMAIN} from "../../constants";
 import {CustomDialog} from "react-st-modal";
 import AboutDialog from "./AboutDialog";

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import _ from "lodash";
-import dummyImg from "../../assets/images/dummy-image.jpg"
+import dummyImg from "../../assets/images/dummyImage.jpg"
 const PublicationCategory = (props) => {
     useEffect(()=>{
         console.log(props)
@@ -14,17 +14,17 @@ const PublicationCategory = (props) => {
                         <span className="loader"/>
                     </div> :
                 !_.isEmpty(props.categories) ?
-                    <div className={"grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-4 py-4 "}>
+                    <div className={"grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4 py-4 "}>
                         {
                             props.categories.map((v, i) => (
                                 <Link to={`/publication/${v.id}`} key={`publication-${i}`}>
                                     <div
-                                        className={"h-full rounded flex flex-col border divide-slate-200 overflow-hidden shadow-lg"}>
-                                        <img className={"h-52 object-contain"}
+                                        className={"relative h-full rounded flex flex-col border divide-slate-200 overflow-hidden shadow-lg"}>
+                                        <img className={"h-32 p-1 object-contain"}
                                              src={v.thumbnail? v.thumbnail: dummyImg}
                                              alt="thumbnail"/>
-                                        <div className="px-6 py-2 bg-gray-200 text-center">
-                                            <div className="font-bold md:text-base text:sm mb-2 capitalize">
+                                        <div className="h-12 flex justify-center items-center px-2 py-2 bg-gray-200 text-center">
+                                            <div className="font-bold md:text-xs text-xs capitalize ">
                                                 {v.name}
                                             </div>
                                         </div>
